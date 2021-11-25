@@ -1,0 +1,51 @@
+﻿@model Plant
+@{
+    ViewData["Title"] = "CRUD Test Application";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Plant #@Html.DisplayFor(model => model.Id) Delete</h1>
+    <br>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>@Html.DisplayNameFor(model => model.Name)</label>
+                @Html.TextBoxFor(model => model.Name, new{@class="form-control", @readonly="true"})
+            </div>
+            <div class="form-group col-md-6">
+                <label>@Html.DisplayNameFor(model => model.Description)</label>
+                @Html.TextBoxFor(model => model.Description, new{@class="form-control", @readonly="true"})
+            </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>@Html.DisplayNameFor(model => model.PricePerUnit)</label>
+            @Html.TextBoxFor(model => model.PricePerUnit, new{@class="form-control", @readonly="true"})
+        </div>
+        <div class="form-group col-md-6">
+            <label>@Html.DisplayNameFor(model => model.MaxTemperature)</label>
+            @Html.TextBoxFor(model => model.MaxTemperature, new{@class="form-control", @readonly="true"})
+        </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>@Html.DisplayNameFor(model => model.MinTemperature)</label>
+                @Html.TextBoxFor(model => model.MinTemperature, new{@class="form-control", @readonly="true"})
+            </div>            
+            <div class="form-group col-md-2">
+                <label>@Html.DisplayNameFor(model => model.Humidity)</label>
+                @Html.TextBoxFor(model => model.Humidity, new{@class="form-control", @readonly="true"})
+            </div>
+        </div>
+        <ul class="nav nav-fill">
+            <li class="nav-item">
+                <input type="button" class="wideButtons btn btn-danger" value="Back" onclick="location.href='@Url.Action("Index", "Plant")'" />
+            </li>
+            <li class="nav-item">
+                <input type="submit" class="wideButtons btn btn-success" value="Delete" /> 
+            </li>
+        </ul>
+    }
+</div>

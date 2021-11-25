@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "CRUD Test Application";
+}
+
+<div class="text-center">
+    <h1 class="display-4">GreenHouse Control</h1>
+    <br>
+    <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+            <input type="button" class="btn btn-lg btn-block btn-primary" value="Plantation Overview" onclick="location.href='@Url.Action("Index", "Plantation")'" />
+        </li>
+        <li class="nav-item">
+            <input type="button" class="btn btn-lg btn-block btn-primary" value="Plants Catalog" onclick="location.href='@Url.Action("Index", "Plant")'" />
+        </li>
+    </ul>
+    
+    
+</div>

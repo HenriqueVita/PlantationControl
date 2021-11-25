@@ -1,0 +1,50 @@
+﻿ 
+@{
+    ViewData["Title"] = "Plants Catalog";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Plants Catalog</h1>
+    <hr/>
+    <div class="input-group justify-content-lg-end">
+        <div class="form-outline">
+            <input type="search" id="form1" class="form-control" />
+        </div>
+        <button type="button" class="btn btn-primary">Search</button>
+    </div>
+    </br>
+    <div class="table-responsive">
+        <table class="table table-hover" >
+            <tr>
+                <th scope="col">Reference</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Max Temp</th>
+                <th scope="col">Min Temp</th>
+                <th scope="col">Humidity</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.PricePerUnit</td>
+                    <td>@item.MaxTemperature</td>
+                    <td>@item.MinTemperature</td>
+                    <td>@item.Humidity</td>
+                    <td>
+                        <input type="button" class="btn btn-warning" value="Edit" onclick="location.href='@Url.Action("Edit", "Plant", new {id=@item.Id})'" />
+                        <input type="button" class="btn btn-info" value="Details" onclick="location.href='@Url.Action("Details", "Plant", new {id=@item.Id})'" />
+                        <input type="button" class="btn btn-danger" value="Delete" onclick="location.href='@Url.Action("Remove", "Plant", new {id=@item.Id})'" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div class="container justify-content-lg-between">
+    <input type="button" class="btn btn-danger" value="Back" onclick="location.href='@Url.Action("Index", "Home")'" />
+    <input type="button" class="btn btn-success" value="New Registry" onclick="location.href='@Url.Action("Edit", "Plant")'" />
+</div>
